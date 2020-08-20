@@ -10,6 +10,7 @@ import com.automationpractice.pages.HomePage;
 import com.automationpractice.pages.ProductPage;
 import com.automationpractice.pojos.Product;
 import com.automationpractice.utilities.Driver;
+import com.automationpractice.utilities.ExcelUtils;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -153,6 +154,117 @@ public class ProductInfoStepDefinitions {
 		Double actual = Double.valueOf(new ProductPage().price.getText().replace("$", ""));
 		Assert.assertEquals(expected, actual);
 	}
+	
+	
+	
+	
+	@Then("The promoted products should be displayed")
+	public void thePromotedProductsShouldBeDisplayed() {
+		//Open and read from excel file
+		ExcelUtils sheet = new ExcelUtils("src/test/resources/com/automationpractice/testData/testData.xlsx", "Sheet1");
+		
+		List<Map<String, String>> dataAsMap = sheet.getDataAsListOfMaps();
+		
+		
+		for (Map<String, String> map : dataAsMap) {
+			
+			if (map.get("Execute").equalsIgnoreCase("Y")) {
+				
+				
+				String product = map.get("Product");
+				
+				System.out.println(product);
+				
+				Assert.assertTrue(new HomePage().getProduct(product).isDisplayed());
+				
+				
+			}
+			
+		}
+		
+
+
+	   
+	}
+
+	@Then("The details of the promoted products should be correct")
+	public void theDetailsOfThePromotedProductsShouldBeCorrect() {
+		
+		/* Framework Types:
+		 * 
+		 * Data Driven
+		 * Keyword-Driven
+		 * Hybrid
+		 * 
+		 */
+		
+		
+		
+		
+		ExcelUtils sheet = new ExcelUtils("src/test/resources/com/automationpractice/testData/testData.xlsx", "Sheet1");
+		
+		List<Map<String, String>> list = sheet.getDataAsListOfMaps();
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			
+			
+			Map<String, String> eachRow = list.get(i);
+			System.out.println(eachRow);
+			
+			if(eachRow.get("Execute").equalsIgnoreCase("Y")) {
+				String expectedName = eachRow.get("Product");
+				String expectedPrice = eachRow.get("Price");
+				String expectedModel = eachRow.get("Model");
+				String expectedStyle = eachRow.get("Styles");
+				String expectedComposition = eachRow.get("Composition");
+				String expectedDescription = eachRow.get("Description");
+				String expectedProperties = eachRow.get("Properties");
+	
+				new HomePage().clickOnProduct(expectedName);
+				
+				ProductPage pp = new ProductPage();
+				
+				String actualName = pp.product.getText();
+				String actualPrice = pp.price.getText();
+				String actualModel = pp.model.getText();
+				String actualStyle= pp.style.getText();
+				String actualComposition = pp.composition.getText();
+				String actualDescription= pp.description.getText();
+				String actualProperties= pp.properties.getText();
+				
+				try {
+					Assert.assertEquals(expectedName, actualName);
+					Assert.assertEquals(expectedModel, actualModel);
+					Assert.assertEquals(expectedPrice, actualPrice);
+					Assert.assertEquals(expectedStyle, actualStyle);
+					Assert.assertEquals(expectedComposition, actualComposition);
+					Assert.assertEquals(expectedProperties, actualProperties);
+					Assert.assertEquals(expectedDescription, actualDescription);
+					
+					sheet.setCellData("PASS", "Status", i+1);
+				} catch (AssertionError e) {
+					e.printStackTrace();
+					sheet.setCellData("FAIL", "Status", i+1);
+					throw e; //re-throw the error so that the Junit will report it as failure
+				}
+				
+				Driver.getDriver().navigate().back();
+				
+				
+			}else {
+				sheet.setCellData("SKIPPED", "Status", i+1);
+			}
+			
+			
+			
+			
+			
+		}
+		
+	   
+	}
+
 
 
 

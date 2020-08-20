@@ -30,8 +30,13 @@ public class HomePage {
 	
 	
 	public void clickOnProduct(String product) {
+		getProduct(product).click();
+		
+	}
+	
+	public WebElement getProduct(String product) {
 		String xpath = "//h5//a[@title='"+product+"']";
-		Driver.getDriver().findElement(By.xpath(xpath)).click();
+		return Driver.getDriver().findElement(By.xpath(xpath));
 		
 	}
 

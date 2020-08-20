@@ -1,6 +1,6 @@
 Feature: Shopping cart
 
-  @temp
+
   Scenario Outline: Verify Shopping cart
     Given I am on homepage
     When I click on "<product>"

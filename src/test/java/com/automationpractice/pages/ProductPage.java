@@ -42,7 +42,20 @@ public class ProductPage {
 	
 	@FindBy (xpath =  "//a[@title='Proceed to checkout']")
 	public WebElement proceedButton;
-	//a[@title='Proceed to checkout']
+	
+	@FindBy (xpath =  "//tr[@class='even']//td[2]")
+	public WebElement style;
+	
+	@FindBy (id =  "short_description_content")
+	public WebElement description;
+	
+	
+	@FindBy (xpath =  "//tr[@class='odd']//td[2]")
+	public WebElement composition;
+	
+	
+	@FindBy (xpath =  "//tr[@class='odd'][2]//td[2]")
+	public WebElement properties;
 	
 	public WebElement returnFirstSelectedOption() {
 		return new Select(size).getFirstSelectedOption();
