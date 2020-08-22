@@ -1,5 +1,5 @@
 Feature: User registration
-
+@fail
   Scenario: Registering  a single  user
     Given I am on homepage
     When I click on sign in button

@@ -5,26 +5,26 @@ Feature: Login feature
     Given I am on homepage
     When I click on sign in button
 
-  @smoke
+  @fail
   Scenario: Verify login page title #Title
     As a user, I should be able to land on login page #Description
 
     Then I should land on login page and the title should be Login - My store
 
-  @smoke 
+  
   Scenario: Verify login page url
     Then I should land on login page and the url should be correct
 
-  @smoke
+  
   Scenario: Verify login page elements
     Then The username, password and login button elements should be enabled
     
-   
+   @fail
    Scenario: Verify login using multiple credentials
    
    And I enter "duotech@gmail.com" to email field
    And I enter "dt123" to password field
-   Then I should be able to login and name should be "Duotech Academy"
+   Then I should be able to login and name should be "Duotek Academy"
    
      
    Scenario Outline: Verify login using multiple credentials  using SO

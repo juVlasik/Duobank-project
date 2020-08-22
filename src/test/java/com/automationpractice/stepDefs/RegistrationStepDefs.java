@@ -20,7 +20,7 @@ public class RegistrationStepDefs {
 	@When("I enter a valid email")
 	public void iEnterAValidEmail() {
 		LoginPage lp =  new LoginPage();
-		lp.registerEmail.sendKeys(new Faker().internet().emailAddress());
+		lp.registerEmail.sendKeys("");
 		lp.createAccountButton.click();
 	    
 	}

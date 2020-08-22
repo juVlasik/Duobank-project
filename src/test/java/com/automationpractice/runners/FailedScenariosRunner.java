@@ -9,14 +9,13 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = "@temp",
 		
-		features = "src/test/resources/com/automationpractice/features",
+		
+		features = "@target/failed.txt",
 		glue = "com/automationpractice/stepDefs",
 		plugin = {"summary",
-				 
-				 
-				 "rerun:target/failed.txt",
+				
+				
 				 "html:target/builtInReport",
 				 "json:target/Cucumber.json" // needed for pretty report
 		
@@ -29,6 +28,6 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		,stepNotifications = true
 		)
 
-public class CukeRunner {
+public class FailedScenariosRunner {
 
 }

@@ -52,7 +52,7 @@ public class LoginStepDefinitions {
 	@Then("I should land on login page and the title should be Login - My store")
 	public void i_should_land_on_login_page_and_the_title_should_be_login_my_store() {
 		String title = Driver.getDriver().getTitle();
-		Assert.assertEquals("Login - My Store", title);
+		Assert.assertEquals("Login - My Stor", title);
 		 
 	}
 	
