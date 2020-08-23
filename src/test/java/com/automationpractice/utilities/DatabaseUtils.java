@@ -50,7 +50,7 @@ public class DatabaseUtils {
     
     private static void executeQuery(String query) {
         try {
-            statement = connection.createStatement();
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         } catch (SQLException e) {
             e.printStackTrace();
         }
