@@ -33,13 +33,12 @@ public class CustomTypeTransformer {
 	public User userEntry ( Map<String, String> row) {
 		
 			
-		return new User(row.get("First name"), 
-						row.get("Last name"), 
-						row.get("Password"),
-						row.get("Address"),
-						row.get("City"),
-						row.get("Zip"),
-						row.get("Phone no"));
+		return new User(row.get("firstName"), 
+						row.get("lastName"), 
+						row.get("password"),
+						
+						row.get("username"),
+						row.get("email"));
 	}
 	
 	

@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.automationpractice.utilities.ConfigReader;
+import com.automationpractice.utilities.DatabaseUtils;
 import com.automationpractice.utilities.Driver;
 
 import io.cucumber.java.After;
@@ -14,7 +15,7 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 	
-	@Before 
+	@Before ("not @db")
 	public void setUp() {
 		Driver.getDriver().manage().timeouts().
 		implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
@@ -25,7 +26,7 @@ public class Hooks {
 	
 	@Before ("@db")
 	public void setUpDb(){
-		System.out.println("Opening conn to database");
+		DatabaseUtils.establishConnection();
 	}
 	
 	
@@ -40,14 +41,15 @@ public class Hooks {
 		
 		
 		
-		Driver.quit();
+//		Driver.quit();
 		
 
 	}
 	
 	@After ("@db")
 	public void tearDownDB() {
-		System.out.println("Closing the Db connection");
+
+		DatabaseUtils.close();
 		
 
 	}
