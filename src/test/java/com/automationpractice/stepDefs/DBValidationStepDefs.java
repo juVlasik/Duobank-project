@@ -50,7 +50,7 @@ public void theCountColumnShouldNotBeMoreThanOne() {
 
 	 for (Map<String, Object> map : queryResultMap) {
 			
-		   Assert.assertTrue("Duplicate value found" + map.get("email"),Integer.parseInt(map.get("c").toString())==1);
+		   Assert.assertTrue("Duplicate value found " + map.get("email"),Integer.parseInt(map.get("c").toString())==1);
 	}
 
 }
