@@ -15,11 +15,12 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 	
-	@Before ("not @db")
+	@Before ("@ui")
 	public void setUp() {
 		Driver.getDriver().manage().timeouts().
 		implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
 		Driver.getDriver().manage().window().maximize();
+		Driver.getDriver().get(ConfigReader.getProperty("url"));
 		
 		
 	}
@@ -41,7 +42,7 @@ public class Hooks {
 		
 		
 		
-//		Driver.quit();
+		Driver.quit();
 		
 
 	}

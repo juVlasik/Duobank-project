@@ -28,7 +28,7 @@ public class DBStepdefs {
 	@Given("I am on registration page")
 	public void iAmOnRegistrationPage() {
 		
-		Driver.getDriver().get(ConfigReader.getProperty("url"));
+		
 		new RegistrationPAge().signUpButton.click();
 
 

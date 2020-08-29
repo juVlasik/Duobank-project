@@ -40,6 +40,18 @@ public class RegistrationPAge {
 	@FindBy (id = "hideLogin")
 	public WebElement signUpButton;
 	
+	@FindBy (id = "loginUsername")
+	public WebElement loginUsername;
+	
+	@FindBy (id = "loginPassword")
+	public WebElement loginPassword;
+	
+	@FindBy (name = "loginButton")
+	public WebElement loginButton;
+	
+	
+	
+	
 	
 	
 	

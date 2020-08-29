@@ -3,7 +3,7 @@
 Feature: Register a user
   
 
-  @db
+  
   Scenario: Verify user registration in DB
     Given I am on registration page
     When I enter the following new user deatils and click sign up
