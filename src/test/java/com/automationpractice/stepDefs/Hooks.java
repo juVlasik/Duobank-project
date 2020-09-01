@@ -31,7 +31,7 @@ public class Hooks {
 	}
 	
 	
-	@After 
+	@After  ("@ui")
 	public void tearDown(Scenario scenario) {
 		
 		if(scenario.isFailed()) {

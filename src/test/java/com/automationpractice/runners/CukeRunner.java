@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = "@db",
+		tags = "@api",
 		
 		features = "src/test/resources/com/automationpractice/features",
 		glue = "com/automationpractice/stepDefs",
@@ -24,7 +24,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 										// pretty -> more detailed output
 		monochrome = true // fixes the ? on the console for windows users
 //			,dryRun = true  // skips the step definition execution -> used to generate SDs quickly
-		
+//		
 		,snippets = SnippetType.CAMELCASE
 		,stepNotifications = true
 		)
