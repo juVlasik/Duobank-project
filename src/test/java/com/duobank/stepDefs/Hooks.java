@@ -1,13 +1,13 @@
-package com.automationpractice.stepDefs;
+package com.duobank.stepDefs;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.automationpractice.utilities.ConfigReader;
-import com.automationpractice.utilities.DatabaseUtils;
-import com.automationpractice.utilities.Driver;
+import com.duobank.utilities.ConfigReader;
+import com.duobank.utilities.DatabaseUtils;
+import com.duobank.utilities.Driver;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

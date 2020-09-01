@@ -1,4 +1,4 @@
-package com.automationpractice.utilities;
+package com.duobank.utilities;
 
 import java.io.File;
 import java.io.IOException;

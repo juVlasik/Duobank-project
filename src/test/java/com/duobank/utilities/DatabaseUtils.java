@@ -1,4 +1,4 @@
-package com.automationpractice.utilities;
+package com.duobank.utilities;
 
 
 import java.sql.Connection;

@@ -1,1 +1,0 @@
-Feature: Delete place endpoint

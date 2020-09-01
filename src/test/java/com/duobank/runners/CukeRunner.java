@@ -1,4 +1,4 @@
-package com.automationpractice.runners;
+package com.duobank.runners;
 
 import org.junit.runner.RunWith;
 
@@ -11,8 +11,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 		tags = "@api",
 		
-		features = "src/test/resources/com/automationpractice/features",
-		glue = "com/automationpractice/stepDefs",
+		features = "src/test/resources/com/duobank/features",
+		glue = "com/duobank/stepDefs",
 		plugin = {"summary",
 				 
 				 
