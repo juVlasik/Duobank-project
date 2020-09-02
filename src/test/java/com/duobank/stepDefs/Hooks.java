@@ -28,6 +28,7 @@ public class Hooks {
 	@Before ("@db")
 	public void setUpDb(){
 		DatabaseUtils.establishConnection();
+		System.out.println("Connected");
 	}
 	
 	
