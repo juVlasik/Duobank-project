@@ -17,6 +17,7 @@ import io.cucumber.java.en.When;
 
 public class UserRegistrationStepDefinitions {
 
+	//db test 1
 	Faker f = new Faker();
 	String firstName = f.name().firstName();
 	String lastName = f.name().lastName();
@@ -59,9 +60,9 @@ public class UserRegistrationStepDefinitions {
 	@Then("the database user table should contain the correct information about the new user")
 	public void theDatabaseUserTableShouldContainTheCorrectInformationAboutTheNewUser() {
 	   
-        //String query = "select * from tbl_user" ;
+      
         String query = "select * from tbl_user where email='"+email+"'" ;
-		System.out.println(query);
+		
 		
 		List<Map<String, Object>> queryResultMap = DatabaseUtils.getQueryResultMap(query);
 		System.out.println(queryResultMap);
@@ -77,6 +78,40 @@ public class UserRegistrationStepDefinitions {
 		DatabaseUtils.updateQuery("delete from tbl_user where email='"+ email +"'");
 		
 	}
+	
+	//db test 2
+	
+	@Given("I create a new user in db")
+	public void iCreateANewUserInDb() {
+		
+		
+		String query = "INSERT INTO tbl_user (id, email, password, first_name, last_name, phone,"
+				+ " image, type, created_at, modified_at, zone_id, church_id, country_id, active) "
+				+ "VALUES (100, 'bpitt@gmail.com', 'williambradley', 'Brad', 'Pitt' ,'7654321',"
+				+ " , 1, '2020-07-16 21:28:00','0000-00-00 00:00:00',1 , 1 , 1 ,1)" ;
+		
+		DatabaseUtils.updateQuery(query);;
+		
+		
+	}
+
+	@When("I should be able to login using credentials")
+	public void iShouldBeAbleToLoginUsingCredentials() {
+	    String firstName = "Brad";
+		String lastName = "Pitt";
+		
+		RegistrationPage rp = new RegistrationPage();
+		rp.emailField.sendKeys("bpitt@gmail.com");
+		rp.passwordField.sendKeys("williambradley");
+		rp.loginButton.click();
+		BrowserUtilities.waitFor(2);
+		
+		String expected = firstName + " " + lastName;
+		String actual = new RegistrationPage().nameConfirmation.getText();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	
 	
 	
 }
