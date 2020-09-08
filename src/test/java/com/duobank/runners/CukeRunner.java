@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = "@api",
+		tags = "@db and @ui and @api",
 	//tags = "@db and @ui" ,
 		
 		features = "src/test/resources/com/duobank/features",
