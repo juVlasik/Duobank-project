@@ -68,8 +68,8 @@ public class APIStepDefinitions {
 		
 		JsonPath jp = given().body("{\n" + 
 				
-				"  \"email\": \"julie.888889@mail.ru\",\n" + 
-				"  \"password\":\"groupdpractice\"\n" + 
+				"  \"email\": \"annie.pono@gmail.com\",\n" + 
+				"  \"password\":\"Anna123!\"\n" + 
 				"}").
 		when().
                post("/api/login.php").

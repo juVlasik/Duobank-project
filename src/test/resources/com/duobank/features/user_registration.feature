@@ -1,4 +1,4 @@
-
+@db @ui
 Feature: Register a user
 
   Scenario: Creating a new user in UI and verify in DB
@@ -8,7 +8,7 @@ Feature: Register a user
     Then I should be able to login
     And the database user table should contain the correct information about the new user
 
-@db @ui
+
     Scenario: Creating a new user in DB and verify in UI
     Given I create a new user in db
     When I should be able to login using credentials
