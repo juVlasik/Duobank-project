@@ -34,7 +34,7 @@ public class APIStepDefinitions {
 	
 	response = given().body("{\n" + 
 				"  \"first_name\":\"Julia\",\n" + 
-				"  \"last_name\": \"zoo\",\n" + 
+				"  \"last_name\": \"Cruz\",\n" + 
 				"  \"email\": \""+email+"\",\n" + 
 				"  \"password\":\"groupdpractice\"\n" + 
 				"}").
